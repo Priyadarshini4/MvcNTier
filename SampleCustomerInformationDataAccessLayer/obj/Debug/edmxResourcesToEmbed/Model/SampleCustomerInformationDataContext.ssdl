@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SampleCustomerInformationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CustomerInformation">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="SNO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="First Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Last Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="60" />
+    <Property Name="Phone" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="User Name" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="12" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SampleCustomerInformation.dbo.CustomerLoginActivity' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CustomerLoginActivity">
+    <Key>
+      <PropertyRef Name="SNO" />
+      <PropertyRef Name="User Name" />
+      <PropertyRef Name="Password" />
+      <PropertyRef Name="Login Time" />
+    </Key>
+    <Property Name="SNO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User Name" Type="int" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="Login Time" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="SampleCustomerInformationModelStoreContainer">
+    <EntitySet Name="CustomerInformation" EntityType="Self.CustomerInformation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerLoginActivity" EntityType="Self.CustomerLoginActivity" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[CustomerLoginActivity].[SNO] AS [SNO], 
+[CustomerLoginActivity].[User Name] AS [User Name], 
+[CustomerLoginActivity].[Password] AS [Password], 
+[CustomerLoginActivity].[Login Time] AS [Login Time]
+FROM [dbo].[CustomerLoginActivity] AS [CustomerLoginActivity]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

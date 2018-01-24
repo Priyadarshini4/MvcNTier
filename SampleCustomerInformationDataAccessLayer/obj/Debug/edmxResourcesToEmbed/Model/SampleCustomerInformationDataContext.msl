@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SampleCustomerInformationModelStoreContainer" CdmEntityContainer="SampleCustomerInformationEntities">
+    <EntitySetMapping Name="CustomerInformations">
+      <EntityTypeMapping TypeName="SampleCustomerInformationModel.CustomerInformation">
+        <MappingFragment StoreEntitySet="CustomerInformation">
+          <ScalarProperty Name="SNO" ColumnName="SNO" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="First_Name" ColumnName="First Name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="User_Name" ColumnName="User Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerLoginActivities">
+      <EntityTypeMapping TypeName="SampleCustomerInformationModel.CustomerLoginActivity">
+        <MappingFragment StoreEntitySet="CustomerLoginActivity">
+          <ScalarProperty Name="SNO" ColumnName="SNO" />
+          <ScalarProperty Name="User_Name" ColumnName="User Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Login_Time" ColumnName="Login Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
